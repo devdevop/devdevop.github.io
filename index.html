@@ -704,7 +704,7 @@
           }
         },
         ping() {
-          var apiUrl = "http://localhost:8007/v1/ping";
+          var apiUrl = "https://alpha-api.m33.bet/v1/ping";
           fetch(apiUrl)
             .then((response) => {
               return response.json();
@@ -712,6 +712,9 @@
             .then((data) => {
               // Work with JSON data here
               console.log(data);
+              Telegram.WebApp.sendData("hi");
+              document.getElementById("webview_data").innerHTML =
+                JSON.stringify(data, null, 2);
             })
             .catch((err) => {
               // Do something for an error here
